@@ -30,5 +30,14 @@ namespace TestingProductReview
             Assert.AreEqual(expected, actual);
         }
 
+        //Usecase 3: Retrieve records from list based on productid and rating > 3 
+        [TestMethod]
+        public void TestMethodForRetrieveRecordsBasedOnRatingAndProductId()
+        {
+            string expected = "5 ";
+            string actual = review.RetrieveRecordsBasedOnRatingAndProductId();
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }

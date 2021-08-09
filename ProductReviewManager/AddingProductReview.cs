@@ -49,6 +49,20 @@ namespace ProductReviewManager
             DisplayList();
             return res.Count;
         }
+        public string RetrieveRecordsBasedOnRatingAndProductId()
+        {
+            AddProductInfo();
+            string nameList = "";
+            Console.WriteLine("\n-----------Retrieve Records Based On Rating and Product Id-----------");
+            var productList = (from product in productReviews 
+                               where product.rating > 3 && (product.productId == 1 || product.productId == 4 || product.productId == 9) select product);
+            foreach (var product in productList)
+            {
+                nameList += product.userId + " ";
+                Console.WriteLine("ProductId: {0} || UserId: {1} || Review: {2} || Rating: {3} || IsLike:{4}\n", product.productId, product.userId, product.review, product.rating, product.isLike);
+            }
+            return nameList;
+        }
         public static void DisplayList()
         {
             Console.WriteLine("\n-------- Displaying List Content --------\n");
