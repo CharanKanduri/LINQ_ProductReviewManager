@@ -54,6 +54,13 @@ namespace TestingProductReview
             string actual = review.RetrieveOnlyProductIdAndReviews();
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void givenRecords_SkipTopFiveandReturn()
+        {
+            string expected = "22 14 17 18 24 9 10 25 1 3 12 19 21 5 6 8 11 15 20 23 ";
+            string actual = review.SkipTop5Record();
+            Assert.AreEqual(expected, actual);
+        }
 
     }
 }

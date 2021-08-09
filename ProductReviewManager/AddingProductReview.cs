@@ -97,5 +97,16 @@ namespace ProductReviewManager
                 Console.WriteLine("ProductId: {0} || UserId: {1} || Review: {2} || Rating: {3} || IsLike:{4}\n", product.productId, product.userId, product.review, product.rating, product.isLike);
             }
         }
+        public string SkipTop5Record()
+        {
+            AddProductInfo();
+            string nameList = "";
+            var result = (from product in productReviews orderby product.rating descending select product).Skip(5).ToList();
+            foreach (var element in result)
+            {
+                nameList += element.productId + " ";
+            }
+            return nameList;
+        }
     }
 }
