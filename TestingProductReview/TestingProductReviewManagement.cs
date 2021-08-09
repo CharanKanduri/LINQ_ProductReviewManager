@@ -39,5 +39,13 @@ namespace TestingProductReview
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void TestMethodForCountingProductId()
+        {
+            string expected = "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ";
+            string actual = review.CountingProductId();
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }

@@ -63,6 +63,18 @@ namespace ProductReviewManager
             }
             return nameList;
         }
+        public string CountingProductId()
+        {
+            string nameList = "";
+            AddProductInfo();
+            var productList = productReviews.GroupBy(x => x.productId).Select(a => new { ProductId = a.Key, count = a.Count() });
+            foreach (var element in productList)
+            {
+                Console.WriteLine("ProductId " + element.ProductId + " " + "Count " + " " + element.count);
+                nameList += element.count + " ";
+            }
+            return nameList;
+        }
         public static void DisplayList()
         {
             Console.WriteLine("\n-------- Displaying List Content --------\n");
