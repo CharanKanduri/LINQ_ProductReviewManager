@@ -75,6 +75,20 @@ namespace ProductReviewManager
             }
             return nameList;
         }
+
+        public string RetrieveOnlyProductIdAndReviews()
+        {
+            string result = "";
+            AddProductInfo();
+            var productList = productReviews.Select(product => new { ProductId = product.productId, Review = product.review }).ToList();
+            foreach (var element in productList)
+            {
+                Console.WriteLine("ProductId: " + element.ProductId + "\tReview: " + element.Review);
+                result += element.ProductId + " ";
+            }
+            return result;
+        }
+
         public static void DisplayList()
         {
             Console.WriteLine("\n-------- Displaying List Content --------\n");
