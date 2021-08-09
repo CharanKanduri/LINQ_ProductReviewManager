@@ -7,6 +7,14 @@ namespace TestingProductReview
     [TestClass]
     public class TestingProductReviewManagement
     {
+        AddingProductReview review;
+        [TestInitialize]
+        public void SetUp()
+        {
+            review = new AddingProductReview();
+
+        }
+
         [TestMethod]
         public void GivenCreateFunction_returnCountofListCreated()
         {
@@ -14,5 +22,13 @@ namespace TestingProductReview
             int actual = AddingProductReview.AddProductInfo();
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void GivenRetrieveTop3_ReturnInt()
+        {
+            int expected = 3;
+            var actual = review.RetrieveTop3();
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }

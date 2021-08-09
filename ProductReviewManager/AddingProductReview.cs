@@ -39,6 +39,16 @@ namespace ProductReviewManager
 
             return productReviews.Count;
         }
+        public int RetrieveTop3()
+        {
+            AddProductInfo();
+           
+            var res = (from product in productReviews 
+                       orderby product.rating descending 
+                       select product).Take(3).ToList();
+            DisplayList();
+            return res.Count;
+        }
         public static void DisplayList()
         {
             Console.WriteLine("\n-------- Displaying List Content --------\n");
